@@ -1,6 +1,7 @@
 from flask import Flask
 from flasgger import Swagger
 from routes.scrape_route import scrape_bp, options_table
+from routes.home_route import home_bp
 
 app = Flask(__name__)
 
@@ -16,8 +17,9 @@ app.config['SWAGGER'] = {
 }
 swagger = Swagger(app)
 
-# Registrando o Blueprint
+# Registrando os Blueprints
 app.register_blueprint(scrape_bp)
+app.register_blueprint(home_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
