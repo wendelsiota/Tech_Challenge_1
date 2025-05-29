@@ -28,12 +28,11 @@ home_bp = Blueprint('home', __name__)
 })
 def home():
     """
-    Endpoint raiz da API que retorna uma mensagem de boas-vindas.
+    Endpoint raiz da API.
     
-    Returns:
-        JSON: Mensagem de boas-vindas e versão da API.
+
     """
     return jsonify({
-        'message': 'Bem-vindo à API do Vitibrasil!',
+        'message': 'Bem-vindo a API do Vitibrasil!',
         'version': '1.0.0'
     }), 200 

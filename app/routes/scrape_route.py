@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from services.web_scraper import scrape_table
 from urllib.parse import urlencode
 from flasgger import swag_from
+from flask_jwt_extended import jwt_required
 
 # Criando o Blueprint
 scrape_bp = Blueprint('scrape', __name__)
@@ -76,9 +77,18 @@ def build_url(ano, opcao, subopcao=None):
     return f"{base_url}?{urlencode(params)}"
 
 @scrape_bp.route('/scrape', methods=['GET'])
+@jwt_required()
 @swag_from({
     'tags': ['Scraping'],
+    'security': [{'Bearer': []}],
     'parameters': [
+        {
+            'name': 'Authorization',
+            'in': 'header',
+            'type': 'string',
+            'required': True,
+            'description': 'Token JWT no formato: Bearer <token>'
+        },
         {
             'name': 'ano',
             'in': 'query',
@@ -135,6 +145,15 @@ def build_url(ano, opcao, subopcao=None):
                 }
             }
         },
+        401: {
+            'description': 'Token JWT inválido ou não fornecido.',
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'msg': {'type': 'string', 'example': 'Token JWT inválido ou não fornecido'}
+                }
+            }
+        },
         500: {
             'description': 'Erro ao processar a URL.',
             'schema': {
@@ -152,13 +171,7 @@ def get_table_data():
     Endpoint da API que recebe ano, opcao e (opcionalmente) subopcao via query string
     e retorna os dados extraídos da tabela.
 
-    Query Parameters:
-        ano (str): Ano da consulta (ex.: 2020).
-        opcao (str): Opção da consulta (ex.: opt_02).
-        subopcao (str, optional): Subopção da consulta (ex.: subopt_01).
 
-    Returns:
-        JSON: Dados extraídos da tabela ou mensagem de erro.
     """
     ano = request.args.get('ano')
     opcao = request.args.get('opcao')
