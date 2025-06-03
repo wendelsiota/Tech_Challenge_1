@@ -130,5 +130,6 @@ Caso a consulta seja realizada usando a URL do Swagger, lembre-se de, no campo A
 
 ## 🧻Documentação
 A documentação da API é gerada automaticamente com Swagger e estará disponivel em `http://localhost:5000/apidocs/`.
+
 Um diagrama de alto nivel pode ser visualizado aqui:
-![image](https://drive.google.com/file/d/1R3Ki3Z3v9HD0-JX8fT1IofORB5EBJMGz/view?usp=sharing)
+[![diagram.jpg](https://i.postimg.cc/XJYVRMFP/diagram.jpg)](https://postimg.cc/TyBMb4tj)
