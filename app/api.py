@@ -30,5 +30,4 @@ app.register_blueprint(home_bp)
 app.register_blueprint(auth_bp)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
