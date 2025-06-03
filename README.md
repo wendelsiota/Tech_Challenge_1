@@ -115,7 +115,17 @@ A tabela a seguir  serve como guia para construção das requisições:
 |         | subopt_02      | Exportação - Espumantes                | Sim              |
 |         | subopt_03      | Exportação - Uvas Frescas              | Sim              |
 |         | subopt_04      | Exportação - Suco de Uva               | Sim              |
-"""
+
+
+Um exemplo para a consulta de informações de processamento (opt_03), de uvas americanas e Hibridas (subopt_03) no ano de 2022, geraria o seguinte comando CURL:
+```bash
+curl -X GET "http://127.0.0.1:5000/scrape?ano=2022&opcao=opt_03&subopcao=subopt_02" -H "accept: application/json" -H "Authorization: Bearer INSIRA-O-SEU-BEARER-TOKEN-AQUI"
+
+```
+Caso a consulta seja realizada usando Postman ou Insomnia, lembre-se de adicionar o token, obtido no endpoint de login, na aba Auth dentro de Params !
+
+Caso a consulta seja realizada usando a URL do Swagger, lembre-se de, no campo Autorization, nos parametros do endpoint de Scrape, adicionar a palavra "Bearer" antes do token, como no exemplo abaixo.
+![Bearer.jpg](https://postimg.cc/MnnjYP0P)
 
 
 
