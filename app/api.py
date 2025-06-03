@@ -1,10 +1,9 @@
 from flask import Flask
 from flasgger import Swagger
 from flask_jwt_extended import JWTManager
-from app.routes.scrape_route import scrape_bp, options_table
-from app.routes.home_route import home_bp
-from app.routes.auth_route import auth_bp
-import os
+from routes.scrape_route import scrape_bp, options_table
+from routes.home_route import home_bp
+from routes.auth_route import auth_bp
 
 app = Flask(__name__)
 
@@ -30,5 +29,4 @@ app.register_blueprint(home_bp)
 app.register_blueprint(auth_bp)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
