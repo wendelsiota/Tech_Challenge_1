@@ -1,9 +1,9 @@
 from flask import Flask
 from flasgger import Swagger
 from flask_jwt_extended import JWTManager
-from routes.scrape_route import scrape_bp, options_table
-from routes.home_route import home_bp
-from routes.auth_route import auth_bp
+from app.routes.scrape_route import scrape_bp, options_table
+from app.routes.home_route import home_bp
+from app.routes.auth_route import auth_bp
 import os
 
 app = Flask(__name__)

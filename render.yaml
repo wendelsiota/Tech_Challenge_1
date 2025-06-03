@@ -3,7 +3,9 @@ services:
     name: vitibrasil-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app.api:app
+    startCommand: cd /opt/render/project/src && gunicorn app.api:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0 
+        value: 3.9.0
+      - key: PYTHONPATH
+        value: /opt/render/project/src 
