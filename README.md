@@ -61,6 +61,7 @@ pip install -r requirements.txt
 ### 4. Execute a Aplicação
 
 ```bash
+cd app
 python api.py
 ```
 O aplicativo estará disponível em `http://localhost:5000`.
