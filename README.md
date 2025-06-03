@@ -117,7 +117,7 @@ A tabela a seguir  serve como guia para construção das requisições:
 |         | subopt_04      | Exportação - Suco de Uva               | Sim              |
 
 
-Um exemplo para a consulta de informações de processamento (opt_03), de uvas americanas e Hibridas (subopt_03) no ano de 2022, geraria o seguinte comando CURL:
+Um exemplo para a consulta de informações de Processamento (opt_03), de uvas Americanas e Hibridas (subopt_03) no ano de 2022, geraria o seguinte comando CURL:
 ```bash
 curl -X GET "http://127.0.0.1:5000/scrape?ano=2022&opcao=opt_03&subopcao=subopt_02" -H "accept: application/json" -H "Authorization: Bearer INSIRA-O-SEU-BEARER-TOKEN-AQUI"
 
@@ -130,3 +130,5 @@ Caso a consulta seja realizada usando a URL do Swagger, lembre-se de, no campo A
 
 ## 🧻Documentação
 A documentação da API é gerada automaticamente com Swagger e estará disponivel em `http://localhost:5000/apidocs/`.
+Um diagrama de alto nivel pode ser visualizado aqui:
+![image](https://drive.google.com/file/d/1R3Ki3Z3v9HD0-JX8fT1IofORB5EBJMGz/view?usp=sharing)
